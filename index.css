@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  background: lightgrey;
+}
+#draw {
+  background: darkgrey;
+  width: 50vw;
+  margin-left: 25vw;
+  margin-right: 25vw;
+}
+#controls {
+  margin-left: 30vw;
+}
