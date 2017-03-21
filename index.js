@@ -48,12 +48,15 @@
       node.draw = function() {
           if (canvas === null) return;
 
-          var width = canvas.width
-            , height = canvas.height
+          var rect = canvas.getBoundingClientRect()
+            , width = rect.width
+            , height = rect.height
             ;
 
           node.getByteTimeDomainData(dataArray);
 
+          canvasCtx.canvas.width = width;
+          canvasCtx.canvas.height = height;
           canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
 
           canvasCtx.lineWidth = 1;
@@ -78,30 +81,28 @@
           if (!st) requestAnimationFrame(node.draw);
       };
 
-      setTimeout(function() {
-        requestAnimationFrame(node.draw);
-      }, 100);
+      setTimeout(() => requestAnimationFrame(node.draw), 100);
 
       return node;
   };
 
-  var maybeStart = function(f) { return function () { f(); play ? start() : stop(); }; };
+  var maybeStart = (f) => () => { f(); play ? start() : stop(); };
 
   var pitch = document.getElementById("pitch");
   var pitchdisp = document.getElementById("pitchdisp");
 
-  pitch.onchange = maybeStart(function() { pitchdisp.value = pitch.value; freq = pitch.value; });
-  pitchdisp.onkeyup = maybeStart(function() { pitch.value = pitchdisp.value; freq = pitch.value; });
+  pitch.oninput = maybeStart(() => { pitchdisp.value = pitch.value; freq = pitch.value; });
+  pitchdisp.onkeyup = maybeStart(() => { pitch.value = pitchdisp.value; freq = pitch.value; });
 
   var form_in = document.getElementById("form");
 
-  form_in.onchange = maybeStart(function() { form = form_in.value.toLowerCase(); });
+  form_in.onchange = maybeStart(() => form = form_in.value.toLowerCase());
 
   var play_in = document.getElementById("play");
 
-  play_in.onclick = maybeStart(function() { play = !play; }); 
+  play_in.onclick = maybeStart(() => { play = !play; play_in.value = play ? "Stop" : "Start"; });
 
   var static_in = document.getElementById("static");
 
-  static_in.onclick = maybeStart(function() { st = static_in.checked; });
+  static_in.onclick = maybeStart(() => st = static_in.checked);
 })();

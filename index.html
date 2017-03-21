@@ -5,18 +5,27 @@
     <link href="index.css" rel="stylesheet">
   </head>
   <body>
-    <canvas id="draw"></canvas>
+    <canvas id="draw" width="100vw" height="100vh"></canvas>
     <div id="controls">
-      <input type="text" id="pitchdisp" value="440"></input>
-      <input value=440 min=1 max=1900 step=1 type="range" id="pitch"></input>
-      <select id="form">
-        <option>Square</option>
-        <option>Sine</option>
-        <option>Sawtooth</option>
-        <option>Triangle</option>
-      </select>
-      <input type="button" id="play" value="Start/Stop"></input>
-      <input type="checkbox" id="static"></input>
+      <div class="inputelem">
+        <label>Pitch</label>
+        <input type="text" id="pitchdisp" value="440"></input>
+        <input value=440 min=1 max=1900 step=1 type="range" id="pitch"></input>
+      </div>
+      <div class="inputelem">
+        <label>Waveform</label>
+        <select id="form">
+          <option>Square</option>
+          <option>Sine</option>
+          <option>Sawtooth</option>
+          <option>Triangle</option>
+        </select>
+      </div>
+      <div class="inputelem">
+        <label>Static Form</label>
+        <input type="checkbox" id="static"></input>
+      </div>
+      <input type="button" id="play" value="Start"></input>
     </div>
     <script type="text/javascript" src="index.js"></script>
   </body>

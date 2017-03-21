@@ -1,13 +1,98 @@
-body {
-  margin: 0;
-  background: lightgrey;
-}
-#draw {
-  background: darkgrey;
-  width: 50vw;
-  margin-left: 25vw;
-  margin-right: 25vw;
+html, body, #draw {
+ margin: 0;
+ padding: 0;
+ width: 100vw;
+ height: 100vh;
+ overflow: hidden;
 }
 #controls {
-  margin-left: 30vw;
+ top: 0;
+ right: 0;
+ position: absolute;
+ box-sizing: border-box;
+ background-color: rgba(0,0,0,0.75);
+ width: 250px;
+}
+.inputelem {
+  color: #fff;
+  font-family: sans-serif;
+  text-transform: lowercase;
+  font-size: 14px;
+  width: 100%;
+  border-bottom: 1px solid grey;
+  box-sizing: border-box;
+}
+.inputelem label {
+  padding: 0.5em;
+  display: inline-block;
+}
+.inputelem:hover {
+  background-color: #000;
+}
+.inputelem input, .inputelem select {
+  float: right;
+  margin-top: 0.5em;
+}
+#pitchdisp, #pitch {
+  color: #45a3dc;
+  background-color: #666;
+  border: none;
+  margin-top: 0.4em;
+}
+#pitchdisp {
+  width: 3em;
+  padding: 3px;
+  height: calc(1.5em - 4px);
+}
+#pitchdisp:focus {
+  background: #555;
+  color: #fff;
+}
+#pitch {
+  -webkit-appearance: none; 
+  cursor: col-resize;
+  height: 1.5em;
+}
+#pitch::-moz-range-thumb {
+  height: 100%;
+  width: 5px;
+  border-radius: 0px;
+  background-color: #45a3dc;
+  border: none;
+}
+#pitch::-webkit-slider-thumb{
+  height: 0px;
+  width: 0px;
+}
+#pitch::-webkit-slider-runnable-track {
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+#pitch::-moz-range-track {
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+#play {
+  width: 100%;
+  border: none;
+  background-color: black;
+  color: white;
+  text-transform: lowercase;
+  padding: 0;
+  margin: 0;
+  padding: 0.2em;
+  font-size: 16px;
+}
+#play:hover {
+  background-color: #333;
+}
+#form {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 0;
+  color: #45a3dc;
+  padding: 1px;
+  background: #666 url("data:image/svg+xml;utf8,%3Csvg%20height='16'%20viewBox='0%200%2048%2048'%20width='16'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M14.83%2016.42l9.17%209.17%209.17-9.17%202.83%202.83-12%2012-12-12z' stroke='%2345a3dc' fill='%2345a3dc'/%3E%3Cpath%20d='M0-.75h48v48h-48z'%20fill='none'/%3E%3C/svg%3E") no-repeat right;
 }
